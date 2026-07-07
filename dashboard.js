@@ -37,7 +37,7 @@
       icon: '<path fill="currentColor" d="M7 5h10l4 6-9 10L2 11z"/>'
     },
     txn2: {
-      merchant: "Zelle to Marcus T.",
+      merchant: "Wire to Marcus T.",
       amount: "$8,000,000.00",
       positive: false,
       status: "Pending",

@@ -26,7 +26,7 @@ html, body {
 }
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+font-family: Inter, Roboto, "Segoe UI", Arial, sans-serif;
   background-color: var(--purple);
   color: var(--text);
 }
@@ -190,7 +190,7 @@ body {
 
 .account-name {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 0.4px;
   color: var(--text-muted);
   margin-bottom: 14px;
@@ -204,7 +204,7 @@ body {
 
 .account-balance {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 300;
   margin-bottom: 4px;
   color: #1a1a1a;
 }
