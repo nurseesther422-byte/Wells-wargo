@@ -1,0 +1,393 @@
+/* ============================================
+   Wells Fargo - Mobile Login Page
+   ============================================ */
+
+:root {
+  --red: #c41230;
+  --red-dark: #a20e28;
+  --gold: #ffd200;
+  --white: #ffffff;
+  --text: #222222;
+  --gray-placeholder: #8a8a8a;
+  --gray-border: #d9d9d9;
+  --gray-dark-text: #4a4a4a;
+  --gray-text: #6b6b6b;
+  --btn-disabled-bg: #efeaea;
+  --btn-disabled-text: #9a9a9a;
+  --dark-blue: #0d47a1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--white);
+  color: var(--text);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ===== Fixed Header ===== */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+
+.header-bar {
+  height: 70px;
+  background-color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+}
+
+.header-spacer {
+  width: 26px;
+  flex-shrink: 0;
+}
+
+.header-logo {
+  flex: 1;
+  text-align: center;
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+}
+
+.hamburger-btn:hover {
+  opacity: 0.8;
+}
+
+.header-gold-line {
+  height: 4px;
+  background-color: var(--gold);
+}
+
+/* ===== Main content ===== */
+.login-main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 106px 0 48px;
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.greeting {
+  font-size: 48px;
+  font-weight: 300;
+  color: #000000;
+  text-align: center;
+  margin: 24px 0 40px;
+  line-height: 1.1;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== Inputs ===== */
+.input-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 420px;
+  margin-bottom: 24px;
+}
+
+.rounded-input {
+  width: 100%;
+  height: 72px;
+  border-radius: 30px;
+  border: 2px solid var(--gray-border);
+  background-color: var(--white);
+  font-family: inherit;
+  font-size: 24px;
+  color: var(--text);
+  padding-left: 24px;
+  padding-right: 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.password-input {
+  padding-right: 84px;
+}
+
+.rounded-input::placeholder {
+  color: var(--gray-placeholder);
+  font-size: 24px;
+}
+
+.rounded-input:focus {
+  outline: none;
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(196, 18, 48, 0.12);
+}
+
+.show-btn {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--dark-blue);
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 6px;
+  transition: color 0.15s ease;
+}
+
+.show-btn:hover {
+  color: #08306b;
+}
+
+/* ===== Error message ===== */
+.error-message {
+  color: var(--red);
+  font-size: 16px;
+  width: 90%;
+  max-width: 420px;
+  min-height: 20px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* ===== Save username row ===== */
+.save-username-row {
+  width: 90%;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  cursor: pointer;
+}
+
+.checkbox-input {
+  width: 26px;
+  height: 26px;
+  accent-color: var(--red);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.save-username-text {
+  font-size: 22px;
+  color: var(--gray-dark-text);
+}
+
+/* ===== Security text ===== */
+.security-text {
+  width: 90%;
+  max-width: 420px;
+  font-size: 18px;
+  color: var(--gray-text);
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+/* ===== Sign On button ===== */
+.sign-on-pill {
+  width: 80%;
+  max-width: 400px;
+  height: 60px;
+  border-radius: 999px;
+  border: none;
+  background-color: var(--btn-disabled-bg);
+  color: var(--btn-disabled-text);
+  font-size: 26px;
+  font-family: inherit;
+  cursor: not-allowed;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  margin-bottom: 32px;
+}
+
+.sign-on-pill.enabled {
+  background-color: var(--red);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.sign-on-pill.enabled:hover {
+  background-color: var(--red-dark);
+}
+
+.sign-on-pill.enabled:active {
+  transform: scale(0.98);
+}
+
+/* ===== Divider ===== */
+.divider-row {
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.divider-text {
+  font-size: 22px;
+  color: var(--gray-text);
+}
+
+/* ===== Passkey button ===== */
+.passkey-btn {
+  width: 80%;
+  max-width: 400px;
+  height: 62px;
+  border-radius: 999px;
+  border: 2px solid #000000;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-bottom: 20px;
+}
+
+.passkey-btn:hover {
+  background-color: #f7f7f7;
+}
+
+.passkey-btn:active {
+  transform: scale(0.98);
+}
+
+.passkey-icon {
+  color: #000000;
+  flex-shrink: 0;
+}
+
+.passkey-text {
+  font-weight: 700;
+  font-size: 20px;
+  color: #000000;
+}
+
+/* ===== Passkey description ===== */
+.passkey-description {
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  color: var(--gray-text);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+/* ===== Bottom link ===== */
+.forgot-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--dark-blue);
+  font-size: 18px;
+  text-decoration: none;
+  margin-top: 24px;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== Responsive tuning ===== */
+@media (max-width: 430px) {
+  .greeting {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 360px) {
+  .greeting {
+    font-size: 36px;
+  }
+
+  .rounded-input,
+  .rounded-input::placeholder {
+    font-size: 20px;
+  }
+
+  .sign-on-pill {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 431px) {
+  body {
+    display: flex;
+    justify-content: center;
+    background-color: #f0f0f0;
+  }
+
+  .app-header,
+  .login-main {
+    width: 430px;
+    max-width: 100%;
+  }
+
+  .app-header {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  body {
+    background-color: #f0f0f0;
+  }
+
+  .login-main {
+    background-color: var(--white);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+  }
+}

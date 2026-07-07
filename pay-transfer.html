@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pay &amp; Transfer - Wells Fargo Credit Connect</title>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-page">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14"/>
+        </svg>
+        <input type="text" class="search-input" placeholder="Ask Fargo" aria-label="Ask Fargo">
+      </div>
+
+      <div class="nav-right">
+        <button class="icon-btn notification-btn" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22m8-6v-5c0-3.53-2.61-6.43-6-6.92V3a2 2 0 0 0-4 0v1.08C6.61 4.57 4 7.47 4 11v5l-2 2v1h20v-1z"/>
+          </svg>
+          <span class="badge">9+</span>
+        </button>
+
+        <button id="signOffBtn" class="sign-off-btn">Sign Off</button>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+
+      <!-- Page Header -->
+      <section class="page-header">
+        <h1 class="page-title">Pay &amp; Transfer</h1>
+        <p class="page-subtitle">Send money, pay bills, and move funds between accounts.</p>
+      </section>
+
+      <!-- Pay & Transfer Actions -->
+      <section class="section-card">
+        <h2 class="section-title">What would you like to do?</h2>
+        <div class="action-grid">
+          <button class="action-tile" data-action="Transfer between accounts">
+            <span class="action-tile-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path fill="currentColor" d="M9.01 14H2v2h7.01v3L13 15l-3.99-4zm5.98-1v-3H22V8h-7.01V5L11 9z"/>
+              </svg>
+            </span>
+            <span class="action-tile-label">Transfer money</span>
+            <span class="action-tile-desc">Between your Wells Fargo accounts</span>
+          </button>
+
+          <button class="action-tile" data-action="Send money with Zelle">
+            <span class="action-tile-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path fill="currentColor" d="M7 2h10l3 6-8 13L4 8zm2.5 2L7 7h10l-2.5-3zM6 9l6 9.5L18 9z"/>
+              </svg>
+            </span>
+            <span class="action-tile-label">Send with Zelle&reg;</span>
+            <span class="action-tile-desc">Fast transfers to friends &amp; family</span>
+          </button>
+
+          <button class="action-tile" data-action="Pay a bill">
+            <span class="action-tile-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path fill="currentColor" d="M4 4h16v2H4zm2 4h12v2H6zm-2 4h16v2H4zm2 4h8v2H6z"/>
+              </svg>
+            </span>
+            <span class="action-tile-label">Pay bills</span>
+            <span class="action-tile-desc">Manage and schedule payments</span>
+          </button>
+
+          <button class="action-tile" data-action="Add an external account">
+            <span class="action-tile-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/>
+              </svg>
+            </span>
+            <span class="action-tile-label">Add external account</span>
+            <span class="action-tile-desc">Link a bank you have elsewhere</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Quick Transfer Form -->
+      <section class="section-card">
+        <h2 class="section-title">Quick Transfer</h2>
+        <form id="transferForm">
+          <div class="form-row-2col">
+            <div class="form-group">
+              <label class="form-label" for="fromAccount">From</label>
+              <select class="form-control" id="fromAccount">
+                <option>Everyday Checking ...0987</option>
+                <option>Way2Save ...3478</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="toAccount">To</label>
+              <select class="form-control" id="toAccount">
+                <option>Way2Save ...3478</option>
+                <option>Everyday Checking ...0987</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="transferAmount">Amount</label>
+            <input type="number" min="0" step="0.01" class="form-control" id="transferAmount" placeholder="$0.00">
+          </div>
+
+          <p id="transferMessage" class="page-subtitle" aria-live="polite"></p>
+
+          <button type="submit" class="primary-btn">Review transfer</button>
+        </form>
+      </section>
+
+      <!-- Recent Payments -->
+      <section class="section-card">
+        <h2 class="section-title">Recent Activity</h2>
+        <div class="row-list">
+          <div class="row-item">
+            <div class="row-left">
+              <span class="row-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path fill="currentColor" d="M7 2h10l3 6-8 13L4 8z"/>
+                </svg>
+              </span>
+              <div class="row-text">
+                <p class="row-title">Zelle to Marcus T.</p>
+                <p class="row-subtitle">Jul 4</p>
+              </div>
+            </div>
+            <span class="row-value negative">$8,000,000.00</span>
+          </div>
+
+          <div class="row-item">
+            <div class="row-left">
+              <span class="row-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path fill="currentColor" d="M4 4h16v2H4zm2 4h12v2H6zm-2 4h16v2H4zm2 4h8v2H6z"/>
+                </svg>
+              </span>
+              <div class="row-text">
+                <p class="row-title">Wire to Acme Corp. &ndash; PG&amp;E</p>
+                <p class="row-subtitle">Jul 1</p>
+              </div>
+            </div>
+            <span class="row-value negative">-$142,200.30</span>
+          </div>
+
+          
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <a href="dashboard.html" class="bottom-nav-item">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Home</span>
+      </a>
+
+      <a href="deposit.html" class="bottom-nav-item">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M19 14V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v8H2l10 8 10-8zm-9 3.5L6.5 14H9V8h2v6h2.5z"/>
+        </svg>
+        <span>Deposit</span>
+      </a>
+
+      <a href="pay-transfer.html" class="bottom-nav-item active" aria-current="page">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M9.01 14H2v2h7.01v3L13 15l-3.99-4zm5.98-1v-3H22V8h-7.01V5L11 9z"/>
+        </svg>
+        <span>Pay &amp; Transfer</span>
+      </a>
+
+      <a href="explore.html" class="bottom-nav-item">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M12 10.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20m3.5 6.5-2 5.5-5.5 2 2-5.5z"/>
+        </svg>
+        <span>Explore</span>
+      </a>
+
+      <a href="menu.html" class="bottom-nav-item">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+        </svg>
+        <span>Menu</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="pay-transfer.js"></script>
+</body>
+</html>
