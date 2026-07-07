@@ -41,7 +41,7 @@
       amount: "$8,000,000.00",
       positive: false,
       status: "Pending",
-      date: "Jul 4, 2026",
+      date: "Jul 7, 2026",
       account: "Everyday Checking ...0987",
       id: "WF-8823811",
       category: "Person-to-person transfer",
