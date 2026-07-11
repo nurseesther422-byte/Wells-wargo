@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard -  Credit Connect</title>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-page">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14"/>
+        </svg>
+        <input type="text" class="search-input" placeholder="Ask Fargo" aria-label="Ask Fargo">
+      </div>
+
+      <div class="nav-right">
+        <button class="icon-btn notification-btn" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22m8-6v-5c0-3.53-2.61-6.43-6-6.92V3a2 2 0 0 0-4 0v1.08C6.61 4.57 4 7.47 4 11v5l-2 2v1h20v-1z"/>
+          </svg>
+          <span class="badge">9+</span>
+        </button>
+
+        <button id="signOffBtn" class="sign-off-btn">Sign Off</button>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+
+      <!-- Greeting -->
+      <section class="greeting-section">
+        <h1 class="greeting-text">Good <span id="date"></span> ,<br>Sophia Martin Rud...</h1>
+      </section>
+
+      <!-- Account Cards -->
+      <section class="account-cards">
+        <div class="account-card">
+          <p class="account-name">EVERYDAY CHECKING <span class="account-number">...0987</span></p>
+          <p class="account-balance">$29,000,000.78</p>
+          <p class="balance-label">Available balance</p>
+        </div>
+
+        <div class="account-card">
+          <p class="account-name">WAY2SAVE <span class="account-number">...3478</span></p>
+          <p class="account-balance">$5,000,712.12</p>
+          <p class="balance-label">Available balance</p>
+        </div>
+
+
+      </section>
+
+      <!-- Transaction History -->
+      <section class="section-card">
+        <h2 class="section-title">Recent Transactions</h2>
+        <div class="row-list" id="transactionList">
+             <button class="row-item txn-row" data-txn="txn2">
+            <div class="row-left">
+              <span class="row-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path fill="currentColor" d="M9.01 14H2v2h7.01v3L13 15l-3.99-4zm5.98-1v-3H22V8h-7.01V5L11 9z"/>
+                </svg>
+              </span>
+              <div class="row-text">
+                <p class="row-title">Wire to Marcus T.</p>
+                <p class="row-subtitle">Everyday Checking &bull; Jul 7</p>
+              </div>
+            </div>
+            <div class="row-right">
+              <span class="row-value negative">$3,000,000.00</span>
+              <span class="status-pill status-pending">Pending</span>
+            </div>
+          </button>
+
+
+          
+          <button class="row-item txn-row" data-txn="txn3">
+            <div class="row-left">
+              <span class="row-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1m1 2v10h14V7z"/>
+                </svg>
+              </span>
+              <div class="row-text">
+                <p class="row-title">Mobile check deposit</p>
+                <p class="row-subtitle">Way2Save &bull; Jul 2</p>
+              </div>
+            </div>
+            <div class="row-right">
+              <span class="row-value positive">+$5,000,000.00</span>
+              <span class="status-pill status-successful">Successful</span>
+            </div>
+          </button>
+
+          <button class="row-item txn-row" data-txn="txn4">
+            <div class="row-left">
+              <span class="row-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path fill="currentColor" d="M4 4h16v2H4zm2 4h12v2H6zm-2 4h16v2H4zm2 4h8v2H6z"/>
+                </svg>
+              </span>
+              <div class="row-text">
+                <p class="row-title">Wire to Acme Corp. &ndash; PG&amp;E</p>
+                <p class="row-subtitle">Everyday Checking &bull; Jul 1</p>
+              </div>
+            </div>
+            <div class="row-right">
+              <span class="row-value negative">-$142,200.30</span>
+              <span class="status-pill status-successful">Successful</span>
+            </div>
+          </button>
+
+          <button class="row-item txn-row" data-txn="txn5">
+            <div class="row-left">
+              <span class="row-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path fill="currentColor" d="M12 2 4 6v2h16V6zM4 10h2v7H4zm4 0h2v7H8zm4 0h2v7h-2zm4 0h2v7h-2zM3 19h18v2H3z"/>
+                </svg>
+              </span>
+              <div class="row-text">
+                <p class="row-title">Direct deposit &ndash; Payroll</p>
+                <p class="row-subtitle">Everyday Checking &bull; Jun 28</p>
+              </div>
+            </div>
+            <div class="row-right">
+              <span class="row-value positive">+$2,300,150.00</span>
+              <span class="status-pill status-successful">Successful</span>
+            </div>
+          </button>
+
+     
+        </div>
+      </section>
+        <!--<div class="account-card open-account-card" tabindex="0" role="button">
+          <div class="open-account-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+              <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/>
+            </svg>
+          </div>
+          <p class="open-account-text">Open new account</p>
+        </div>-->
+        <br>
+      <!-- Credit Score Card -->
+      <section class="credit-score-card">
+        <div class="score-circle-wrapper">
+          <svg class="score-ring" viewBox="0 0 120 120" width="100" height="100" aria-hidden="true">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="#e9e6f7" stroke-width="10"/>
+            <circle cx="60" cy="60" r="52" fill="none" stroke="#c41230" stroke-width="10"
+              stroke-linecap="round"
+              stroke-dasharray="326.7"
+              stroke-dashoffset="55"
+              transform="rotate(-90 60 60)"/>
+          </svg>
+          <span class="score-number">785</span>
+        </div>
+
+        <div class="score-details">
+          <p class="score-headline">Your FICO<sup>&reg;</sup> Score went up 10 points</p>
+          <p class="score-updated">Updated 06/29/2026</p>
+        </div>
+      </section>
+
+      <!-- Rewards Card -->
+      <section class="rewards-card">
+        <div class="rewards-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="#f4b400" d="M12 2l2.9 6.26L21.5 9l-5 4.87L17.8 21 12 17.27 6.2 21l1.3-7.13-5-4.87 6.6-.74z"/>
+          </svg>
+        </div>
+        <p class="rewards-text">Earn 20k bonus points</p>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <a href="dashboard.html" class="bottom-nav-item active" aria-current="page">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Home</span>
+      </a>
+
+      <a href="deposit.html" class="bottom-nav-item">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M19 14V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v8H2l10 8 10-8zm-9 3.5L6.5 14H9V8h2v6h2.5z"/>
+        </svg>
+        <span>Deposit</span>
+      </a>
+
+      <a href="pay-transfer.html" class="bottom-nav-item">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M9.01 14H2v2h7.01v3L13 15l-3.99-4zm5.98-1v-3H22V8h-7.01V5L11 9z"/>
+        </svg>
+        <span>Pay &amp; Transfer</span>
+      </a>
+
+      <a href="explore.html" class="bottom-nav-item">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M12 10.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20m3.5 6.5-2 5.5-5.5 2 2-5.5z"/>
+        </svg>
+        <span>Explore</span>
+      </a>
+
+      <a href="menu.html" class="bottom-nav-item">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+        </svg>
+        <span>Menu</span>
+      </a>
+    </nav>
+
+    <!-- Transaction Detail Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalMerchant">
+        <button class="modal-close" id="modalCloseBtn" aria-label="Close">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="currentColor" d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6L19 6.4 17.6 5 12 10.6z"/>
+          </svg>
+        </button>
+
+        <div class="modal-icon" id="modalIcon">
+          <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+            <path fill="currentColor" d="M7 5h10l4 6-9 10L2 11z"/>
+          </svg>
+        </div>
+
+        <p class="modal-amount" id="modalAmount">-$64.28</p>
+        <p class="modal-merchant" id="modalMerchant">Whole Foods Market</p>
+        <span class="status-pill" id="modalStatusPill">Successful</span>
+
+        <div class="modal-details">
+          <div class="modal-detail-row">
+            <span class="modal-detail-label">Status</span>
+            <span class="modal-detail-value" id="modalStatusText">Successful</span>
+          </div>
+          <div class="modal-detail-row">
+            <span class="modal-detail-label">Date</span>
+            <span class="modal-detail-value" id="modalDate">Jul 5, 2026</span>
+          </div>
+          <div class="modal-detail-row">
+            <span class="modal-detail-label">Account</span>
+            <span class="modal-detail-value" id="modalAccount">Everyday Checking ...0987</span>
+          </div>
+          <div class="modal-detail-row">
+            <span class="modal-detail-label">Transaction ID</span>
+            <span class="modal-detail-value" id="modalTxnId">WF-8823914</span>
+          </div>
+          <div class="modal-detail-row">
+            <span class="modal-detail-label">Category</span>
+            <span class="modal-detail-value" id="modalCategory">Groceries</span>
+          </div>
+        </div>
+
+        <button class="modal-done-btn" id="modalDoneBtn">Done</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
